@@ -57,11 +57,7 @@
 				7BC32AFD1E43F6890076C711 /* Model */,
 				7BC32AFC1E43F6810076C711 /* View */,
 				7BC32AFB1E43F6780076C711 /* Controller */,
-				7BC32AE91E43EF7D0076C711 /* AppDelegate.swift */,
-				7BC32AEB1E43EF7D0076C711 /* ViewController.swift */,
-				7BC32AED1E43EF7D0076C711 /* Main.storyboard */,
 				7BC32AF01E43EF7D0076C711 /* Assets.xcassets */,
-				7BC32AF21E43EF7D0076C711 /* LaunchScreen.storyboard */,
 				7BC32AF51E43EF7D0076C711 /* Info.plist */,
 			);
 			path = MakeAChoiceStory;
@@ -70,6 +66,8 @@
 		7BC32AFB1E43F6780076C711 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				7BC32AE91E43EF7D0076C711 /* AppDelegate.swift */,
+				7BC32AEB1E43EF7D0076C711 /* ViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -77,6 +75,8 @@
 		7BC32AFC1E43F6810076C711 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7BC32AED1E43EF7D0076C711 /* Main.storyboard */,
+				7BC32AF21E43EF7D0076C711 /* LaunchScreen.storyboard */,
 			);
 			name = View;
 			sourceTree = "<group>";
