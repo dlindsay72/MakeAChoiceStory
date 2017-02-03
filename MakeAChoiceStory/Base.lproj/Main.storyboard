@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--MainVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MakeAChoiceStory" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainVC" customModule="MakeAChoiceStory" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -28,7 +28,7 @@
                                 <rect key="frame" x="120" y="589" width="135" height="30"/>
                                 <state key="normal" title="Start your journey..."/>
                                 <connections>
-                                    <segue destination="zJ8-Sa-SYT" kind="show" id="ZHS-XS-XBe"/>
+                                    <segue destination="zJ8-Sa-SYT" kind="show" identifier="startAdventure" id="ZHS-XS-XBe"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -48,10 +48,10 @@
             </objects>
             <point key="canvasLocation" x="804" y="37.331334332833585"/>
         </scene>
-        <!--View Controller-->
+        <!--Page Controller-->
         <scene sceneID="i1O-ie-taD">
             <objects>
-                <viewController id="zJ8-Sa-SYT" sceneMemberID="viewController">
+                <viewController id="zJ8-Sa-SYT" customClass="PageController" customModule="MakeAChoiceStory" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1r3-gf-ZMV"/>
                         <viewControllerLayoutGuide type="bottom" id="d1w-Yn-fw0"/>
