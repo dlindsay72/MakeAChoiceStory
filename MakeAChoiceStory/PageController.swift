@@ -43,31 +43,41 @@ class PageController: UIViewController {
     
     // MARK: - User Interface Properties
     
-    let artworkView: UIImageView = {
+    lazy var artworkView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = self.page?.story.artwork
         
         return imageView
     }()
     
-    let storyLabel: UILabel = {
+    lazy var storyLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.attributedText = self.page?.story(attributed: true)
         
         return label
     }()
     
-    let firstChoiceButton: UIButton = {
-        let button = UIButton()
+    lazy var firstChoiceButton: UIButton = {
+        let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
+        
+        let title = self.page?.firstChoice?.title ?? "Play Again"
+        let selector = self.page?.firstChoice != nil ? #selector(PageController.loadFirstChoice) : #selector(PageController.playAgain)
+        button.setTitle(title, for: .normal)
+        button.addTarget(self, action: selector, for: .touchUpInside)
         
         return button
     }()
     
-    let secondChoiceButton: UIButton = {
-        let button = UIButton()
+    lazy var secondChoiceButton: UIButton = {
+        let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
+        
+        button.setTitle(self.page?.secondChoice?.title, for: .normal)
+        button.addTarget(self, action: #selector(PageController.loadSecondChoice), for: .touchUpInside)
         
         return button
     }()
@@ -84,25 +94,6 @@ class PageController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-
-        if let page = page {
-            artworkView.image = page.story.artwork
-            
-            storyLabel.attributedText = page.story(attributed: true)
-            
-            if let firstChoice = page.firstChoice {
-                firstChoiceButton.setTitle(firstChoice.title, for: .normal)
-                firstChoiceButton.addTarget(self, action: #selector(PageController.loadFirstChoice), for: .touchUpInside)
-            } else {
-                firstChoiceButton.setTitle("Play Again", for: .normal)
-                firstChoiceButton.addTarget(self, action: #selector(PageController.playAgain), for: .touchUpInside)
-            }
-            
-            if let secondChoice = page.secondChoice {
-                secondChoiceButton.setTitle(secondChoice.title, for: .normal)
-                secondChoiceButton.addTarget(self, action: #selector(PageController.loadSecondChoice), for: .touchUpInside)
-            }
-        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -162,6 +153,7 @@ class PageController: UIViewController {
             navigationController?.pushViewController(pageController, animated: true)
         }
     }
+    
     
     func playAgain() {
         navigationController?.popToRootViewController(animated: true)
